@@ -1,0 +1,83 @@
+<web-app>
+	<servlet>
+		<servlet-name>loginMapping</servlet-name>
+		<servlet-class>servlet.LoginServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>loginMapping</servlet-name>
+		<url-pattern>/login</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>logoutMapping</servlet-name>
+		<servlet-class>servlet.LogoutServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>logoutMapping</servlet-name>
+		<url-pattern>/logout</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>listMapping</servlet-name>
+		<servlet-class>servlet.ListServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>listMapping</servlet-name>
+		<url-pattern>/list</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>detailMapping</servlet-name>
+		<servlet-class>servlet.DetailServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>detailMapping</servlet-name>
+		<url-pattern>/detail</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>sendFormMapping</servlet-name>
+		<servlet-class>servlet.SendFormServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>sendFormMapping</servlet-name>
+		<url-pattern>/sendform</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>sendMailMapping</servlet-name>
+		<servlet-class>servlet.SendMailServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>sendMailMapping</servlet-name>
+		<url-pattern>/sendmail</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>searchMapping</servlet-name>
+		<servlet-class>servlet.SearchServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>searchMapping</servlet-name>
+		<url-pattern>/search</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>bookmarkMapping</servlet-name>
+		<servlet-class>servlet.BookMarkServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>bookmarkMapping</servlet-name>
+		<url-pattern>/bookmark</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>userinsertMapping</servlet-name>
+		<servlet-class>servlet.UserInsertServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>userinsertMapping</servlet-name>
+		<url-pattern>/userinsert</url-pattern>
+	</servlet-mapping>
+
+</web-app>

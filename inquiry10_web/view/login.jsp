@@ -1,6 +1,6 @@
 <!-- ログイン画面　　2023/06/22　　正路友梧 -->>
 <%@page contentType="text/html; charset=UTF-8"%>
-<%@page import="Servlet.LoginServlet"%>
+<%@page import="servlet.LoginServlet"%>
 <html>
 <head>
 <title>ログイン</title>
@@ -19,7 +19,7 @@
 			<table style="margin: auto">
 				<tr>
 					<th>ログインID:</th>
-					<th><input type=text size="30" name="user"></input></th>
+					<th><input type=text size="30" name="userid"></input></th>
 				</tr>
 				<tr>
 					<th>パスワード：</th>

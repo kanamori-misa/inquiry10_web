@@ -6,17 +6,14 @@
  *
  */
 
-
-
-
-package Servlet;
+package servlet;
 
 import java.io.*;
 import javax.servlet.*;
 import javax.servlet.http.*;
 
-import bean.User;
-import user_DAO.UserDAO;
+import bean.*;
+import dao.*;
 
 public class LoginServlet extends HttpServlet {
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -32,7 +29,7 @@ public class LoginServlet extends HttpServlet {
 
 		try {
 			// パラメータの取得
-			String userid = request.getParameter("user");
+			String userid = request.getParameter("userid");
 			String password = request.getParameter("password");
 
 			// 関連メソッドの呼び出し
@@ -66,7 +63,7 @@ public class LoginServlet extends HttpServlet {
 		} finally {
 			if (error.equals("")) {
 				// フォワード処理
-				request.getRequestDispatcher("/view/menu.jsp").forward(request, response);
+				request.getRequestDispatcher("/list").forward(request, response);
 			} else {
 				request.setAttribute("error", error);
 				request.setAttribute("cmd", cmd);

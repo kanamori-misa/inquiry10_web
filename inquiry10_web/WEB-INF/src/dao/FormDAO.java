@@ -20,7 +20,7 @@ public class FormDAO {
 
 
 	private static final String RDB_DRIVE = "com.mysql.jdbc.Driver";
-	private static final String URL = "jdbc:mysql://localhost/Formdb";
+	private static final String URL = "jdbc:mysql://localhost/formdb";
 	private static final String USER = "root";
 	private static final String PASSWD = "root123";
 
@@ -42,7 +42,10 @@ public class FormDAO {
 
 		try {
 			//変数sqlにSQL文を格納
-			String sql = "INSERT INTO forminfo VALUES("+form.getFormid()+",'"+form.getName()+"',"+form.getAge()+",'"+form.getEmail()+"',"+form.getSex()+",'"+form.getAddress()+"',"+form.getForm()+",'"+form.getContent()+"')";
+			String sql = "INSERT INTO forminfo(formid,name,age,email,sex,address,form,content,date,mailstate) " +
+									"VALUES(NULL,'"+form.getName()+"',"+form.getAge()+",'"
+					+form.getEmail()+"',"+form.getSex()+",'"+form.getAddress()+"',"
+									+form.getForm()+",'"+form.getContent()+"',CURDATE(),"+0+")";
 
 			//オブジェクト生成
 			con = getConnection();
@@ -62,6 +65,47 @@ public class FormDAO {
 		}
 	}
 
+	}
+	public Form selectByFormid(String formid){
+		// Bookクラスをインスタンス化・SQL文作成
+		Form form = new Form(); // これは戻り値
+		String sql = "SELECT * FROM forminfo WHERE formid = '" + formid + "'";
+
+		Connection con = null;
+		Statement smt = null;
+
+		try {
+			con = getConnection();
+			smt = con.createStatement();
+
+			// SQL文発行
+			ResultSet rs = smt.executeQuery(sql);
+			while (rs.next()) { // 検索結果をbookに格納
+				form.setFormid(rs.getInt("formid"));
+				form.setName(rs.getString("name"));
+				form.setAge(rs.getInt("age"));
+				form.setEmail(rs.getString("email"));
+				form.setSex(rs.getInt("sex"));
+				form.setAddress(rs.getString("address"));
+				form.setForm(rs.getInt("form"));
+				form.setContent(rs.getString("content"));
+			}
+
+		} catch (Exception e) {
+			throw new IllegalStateException(e);
+		} finally { // リソースの開放
+			if (smt != null) {
+				try {
+					smt.close();
+				} catch (SQLException ignore) {}
+			}
+			if (con != null) {
+				try {
+					con.close();
+				} catch (SQLException ignore) {}
+			}
+		}
+		return form;
 	}
 
 	public ArrayList<Form> selectAll()	{
